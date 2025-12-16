@@ -25,7 +25,7 @@ app.use(ipFilter);// רישום הmiddleware באפליקציה
 
 // };
 // app.use(logger);// רישום הmiddleware באפליקציה
-
+//
 
 // רישום הראוטרים באפליקציה
 app.use('/product',productRouter);// רישום הראוטר באפליקציה תחת הנתיב /product

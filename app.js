@@ -1,3 +1,4 @@
+require('dotenv').config();//הפעת הפונקציה שמשלבת את משתני הסביבה מתוך הקובץ dotenv
 const express=require('express');// חיבור לספריית אקספרס שמאפשרת ניהול שרתי אינטרנט
 const app=express();// יצירת אפליקציה חדשה באמצעות אקספרס
 const productRouter=require('./api/v1/routes/product');// ייבוא הראוטר לניהול ניתובים עבור היישות מוצר
@@ -5,7 +6,7 @@ const orderRouter=require('./api/v1/routes/order');// ייבוא הראוטר ל
 const morgan=require('morgan');// חיבור לספריית מורגן לניטור בקשות HTTP
 const ipFilter=require('./api/v1/middlewares/ipFilter');// ייבוא middleware לסינון כתובות IP
 app.use(morgan('dev'));
-
+const mongoConnstr=`mongodb+srv://${mongoUser}:${mongoPass}/?appName=Ecomm`;
 
 app.use(ipFilter);// רישום הmiddleware באפליקציה
 
@@ -26,7 +27,7 @@ app.use(ipFilter);// רישום הmiddleware באפליקציה
 // };
 // app.use(logger);// רישום הmiddleware באפליקציה
 //
-
+//
 // רישום הראוטרים באפליקציה
 app.use('/product',productRouter);// רישום הראוטר באפליקציה תחת הנתיב /product
 app.use('/order',orderRouter);// רישום הראוטר באפליקציה תחת הנתיב /order
